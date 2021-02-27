@@ -72,11 +72,79 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	
 	@Override
 	public Actor findActorById(int actorID) {
-		return null;
+		Actor actor = null;
+		String user = "student";
+		String pass = "student";
+		
+		Connection conn;
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+
+		
+		String sqltxt = "SELECT actor.id, actor.first_name, actor.last_name"
+				+ " FROM actor WHERE actor.id = ?;";
+		PreparedStatement stmt = conn.prepareStatement(sqltxt);
+		
+		
+		stmt.setInt(1, actorID);
+		
+		ResultSet filmById = stmt.executeQuery();
+		
+		if(filmById.next()) {
+			actor = new Actor();
+			actor.setId(filmById.getInt(actorID));
+			actor.setFirstName(filmById.getString("actor.first_name"));
+			actor.setLastName(filmById.getString("actor.last_name"));
+			
+		}
+		
+		filmById.close();
+		conn.close();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return actor;
 	}
 	
 	@Override
 	public List<Actor> findActorsByFilmId(int filmId){
+		Actor actor = null;
+		String user = "student";
+		String pass = "student";
+		
+		Connection conn;
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+
+		
+		String sqltxt = "SELECT actor.id, actor.first_name, actor.last_name"
+				+ " FROM actor WHERE actor.id = ?;";
+		PreparedStatement stmt = conn.prepareStatement(sqltxt);
+		
+		
+		stmt.setInt(1, filmId);
+		
+		ResultSet filmById = stmt.executeQuery();
+		
+		if(filmById.next()) {
+			actor = new Actor();
+			actor.setId(filmById.getInt(filmId));
+			actor.setFirstName(filmById.getString("actor.first_name"));
+			actor.setLastName(filmById.getString("actor.last_name"));
+			
+		}
+		
+		filmById.close();
+		conn.close();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 		return null;
 	}
 

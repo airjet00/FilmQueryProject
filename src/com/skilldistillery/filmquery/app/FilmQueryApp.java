@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
 import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
+import com.skilldistillery.filmquery.entities.Actor;
 import com.skilldistillery.filmquery.entities.Film;
 
 public class FilmQueryApp {
@@ -18,7 +19,9 @@ public class FilmQueryApp {
 
   private void test() {
     Film film = db.findFilmById(1);
-    System.out.println(film);
+    Actor actor = db.findActorById(1);
+//    System.out.println(film);
+    System.out.println(actor);
   }
 
   private void launch() {
