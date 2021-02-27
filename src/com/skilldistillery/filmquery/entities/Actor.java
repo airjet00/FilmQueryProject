@@ -9,7 +9,7 @@ public class Actor {
 	private int id;
 	private String firstName;
 	private String lastName;
-	private List<Actor> actors;
+
 	
 	public Actor() {}
 	
