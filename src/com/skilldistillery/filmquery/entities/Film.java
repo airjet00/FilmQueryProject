@@ -15,6 +15,8 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private List<Actor> actors;
+	private List<Film> films;
+	private String language;
 	
 	public Film() {}
 	
@@ -153,6 +155,22 @@ public class Film {
 		this.actors = actors;
 	}
 
+	public List<Film> getFilms() {
+		return films;
+	}
+
+	public void setFilms(List<Film> films) {
+		this.films = films;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -230,34 +248,35 @@ public class Film {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Film [id=");
+		builder.append("Film id: \n");
 		builder.append(id);
-		builder.append(", title=");
+		builder.append(", title: \n");
 		builder.append(title);
-		builder.append(", description=");
+		builder.append(", description: \n");
 		builder.append(description);
-		builder.append(", releaseYear=");
+		builder.append(", releaseYear: \n");
 		builder.append(releaseYear);
-		builder.append(", languageID=");
+		builder.append(", languageID: \n");
 		builder.append(languageID);
-		builder.append(", rentalDuration=");
+		builder.append(", rentalDuration: \n");
 		builder.append(rentalDuration);
-		builder.append(", rentalRate=");
+		builder.append(", rentalRate: \n");
 		builder.append(rentalRate);
-		builder.append(", length=");
+		builder.append(", length \n");
 		builder.append(length);
-		builder.append(", replacementCost=");
+		builder.append(", replacementCost: \n");
 		builder.append(replacementCost);
-		builder.append(", rating=");
+		builder.append(", rating: \n");
 		builder.append(rating);
-		builder.append(", specialFeatures=");
+		builder.append(", specialFeatures: \n");
 		builder.append(specialFeatures);
-		builder.append(", actors=");
+		builder.append(", actors: \n");
 		builder.append(actors);
-		builder.append("]");
+		builder.append(", films: ");
+		builder.append(films);
+		builder.append(", Language: ");
+		builder.append(language);
 		return builder.toString();
 	}
-
-
 
 }
