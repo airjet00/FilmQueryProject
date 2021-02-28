@@ -118,7 +118,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 
-			String sqltxt = "SELECT actor.id, actor.first_name, actor.last_name" + " FROM actor JOIN film_actor"
+			String sqltxt = "SELECT actor.first_name, actor.last_name" + " FROM actor JOIN film_actor"
 					+ " ON actor.id = film_actor.actor_id" + " JOIN film" + " ON film_actor.film_id = film.id"
 					+ " WHERE film.id = ?;";
 
