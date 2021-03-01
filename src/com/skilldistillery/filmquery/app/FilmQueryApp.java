@@ -47,13 +47,14 @@ public class FilmQueryApp {
 
 		while (isTrue) {
 			displayMenu();
-			int userSelect = input.nextInt();
-			if (userSelect != 1 && userSelect != 2 && userSelect != 3) {
-				System.out.println("Please select 1, 2, or 3 to exit");
-				System.out.println();
-				continue;
-			}
-			switch (userSelect) {
+//			int userSelect = userSelectMainMenu(input);
+//					input.nextInt();
+//			if (userSelect != 1 && userSelect != 2 && userSelect != 3) {
+//				System.out.println("Please select 1, 2, or 3 to exit");
+//				System.out.println();
+//				continue;}
+			
+			switch (userSelectMainMenu(input)) {
 			case 1:
 				System.out.println("Enter the film ID to display information:");
 			
@@ -104,9 +105,27 @@ public class FilmQueryApp {
 				break;
 			}
 		}
-
 	}
 
+	
+	
+	private int userSelectMainMenu (Scanner input) {
+		boolean isTrue = true;
+		int userSelect = input.nextInt();
+		while(isTrue) {
+			if (userSelect != 1 && userSelect != 2 && userSelect != 3) {
+				System.out.println("Please select 1, 2, or 3 to exit");
+				System.out.println();
+				userSelect = input.nextInt();
+				continue;
+			
+			}else {
+				isTrue = false;
+			}
+		}
+		return userSelect;
+	}
+	
 	private void displayMenu() {
 		System.out.println("Please enter an integer option from the menu.");
 		System.out.println("--------------------------------------------");
