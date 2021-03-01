@@ -55,7 +55,7 @@ public class FilmQueryApp {
 //				continue;}
 			
 			switch (userSelectMainMenu(input)) {
-			case 1:
+			case 1:   // if more time add new method for case 1
 				System.out.println("Enter the film ID to display information:");
 			
 				int	filmId = input.nextInt();
@@ -68,15 +68,18 @@ public class FilmQueryApp {
 					System.out.println(film.getReleaseYear());
 					System.out.println(film.getRating());
 					System.out.println(film.getLanguage());
+					System.out.println();
 					System.out.println(film.getDescription());
-					System.out.println(film.getActors());
+					for (Actor act : film.getActors()) {
+						System.out.println(act);
+					}
 					System.out.println();
 				} else {
 					System.out.println("No film found by that ID.");
 				}
 				break;
 
-			case 2:
+			case 2:  // if more time add new method for case 2
 				System.out.println("Enter keyword to search for:");
 
 				String keyword = input.next();
@@ -107,7 +110,6 @@ public class FilmQueryApp {
 		}
 	}
 
-	
 	
 	private int userSelectMainMenu (Scanner input) {
 		boolean isTrue = true;
